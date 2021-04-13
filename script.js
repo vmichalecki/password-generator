@@ -1,6 +1,7 @@
-// Assignment Code
+// Assignment Code (provided)
 let generateBtn = document.querySelector('#generate');
-// let passwordParams = {
+
+// MINE
 const specialCharacters = [
 	'@',
 	'%',
@@ -84,19 +85,22 @@ const upperCasedCharacters = [
 	'Z',
 ];
 
+// MINE
 function passwordParams() {
-	// variable to store password length
+	// Variables to store password parameters
 	const passwordLength = parseInt(window.prompt('How many characters? (Enter 8-128)'));
 	const lowerCase = window.confirm('Include lowercased characters?');
 	const upperCase = window.confirm('Include uppercased characters?');
 	const numeric = window.confirm('Include numeric characters?');
 	const special = window.confirm('Include special characters?');
 
-	// if statement to validate
+	// MINE
+	// If statement to validate
 	if (lowerCase != true && upperCase != true && numeric != true && special != true) {
 		alert('You must choose at least one parameter.');
 		return;
 	}
+
 	const pwParams = {
 		length: passwordLength,
 		lowerChar: lowerCase,
@@ -107,9 +111,8 @@ function passwordParams() {
 	return pwParams;
 }
 
-// Write password to the #password inputmmi
-
-//create a function that randomizes everything (4 things at the same time)
+// MINE
+// Create a function that randomizes everything, the four arrays together at the same time
 
 function randomizer(array) {
 	const index = Math.floor(Math.random() * array.length);
@@ -117,14 +120,29 @@ function randomizer(array) {
 	return indexEl;
 }
 
-console.log(randomizer(numericCharacters));
+function generatePassword() {
+	const params = passwordParams();
+	params.length;
+	params.lowerChar;
+	params.upperChar;
+	params.specialChar;
+	params.number;
+	const pwParams = array();
+	pwParams.lowerChar.value;
 
+	// JP: Create a variable that is an empty array that will take in the results
+	// JP: Also randomize arrays that are chosen, so create an empty array that contains the chosen arrays
+	// JP: Then make an array of guaranteed characters and
+	// then make an array that ransdomizes that and joins them together in a string to mix them up,
+	// otherwise they will just be in array order (ex. 123abcXYZ!@#)
+}
+
+// Write password to the #password input (provided)
 function writePassword() {
 	const password = generatePassword();
 	const passwordText = document.querySelector('#password');
-	for (var i = 0; i < passwordLength.length; i++) {}
 	passwordText.value = password;
 }
 
-// Add event listener to generate button
+// Add event listener to generate button (provided)
 generateBtn.addEventListener('click', writePassword);
