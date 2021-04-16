@@ -1,7 +1,5 @@
-// Assignment Code (provided)
+// global variables
 let generateBtn = document.querySelector('#generate');
-
-// MINE
 const specialCharacters = [
 	'@',
 	'%',
@@ -85,7 +83,7 @@ const upperCasedCharacters = [
 	'Z',
 ];
 
-// MINE
+// this function prompts the user to make a choice with popup windows and then evaluates the user's choices in a string for the length and booleans for the rest of the parameters
 function passwordParams() {
 	// Variables to store password parameters
 	const passwordLength = parseInt(window.prompt('How many characters? (Enter 8-128)'));
@@ -94,7 +92,6 @@ function passwordParams() {
 	const numeric = window.confirm('Include numeric characters?');
 	const special = window.confirm('Include special characters?');
 
-	// MINE
 	// If statement to validate
 	if (lowerCase != true && upperCase != true && numeric != true && special != true) {
 		alert('You must choose at least one parameter.');
@@ -111,9 +108,7 @@ function passwordParams() {
 	return pwParams;
 }
 
-// MINE
-// Create a function that randomizes everything, the four arrays together at the same time
-
+// this function chooses ONE random character from each array
 function randomizer(array) {
 	const index = Math.floor(Math.random() * array.length);
 	const indexEl = array[index];
@@ -122,19 +117,34 @@ function randomizer(array) {
 
 function generatePassword() {
 	const params = passwordParams();
-	params.length;
-	params.lowerChar;
-	params.upperChar;
-	params.specialChar;
-	params.number;
-	const pwParams = array();
-	pwParams.lowerChar.value;
+	console.log(params);
+	let password = [];
+	let usersChoices = [];
 
-	// JP: Create a variable that is an empty array that will take in the results
-	// JP: Also randomize arrays that are chosen, so create an empty array that contains the chosen arrays
-	// JP: Then make an array of guaranteed characters and
-	// then make an array that ransdomizes that and joins them together in a string to mix them up,
-	// otherwise they will just be in array order (ex. 123abcXYZ!@#)
+	if (params.lowerChar === true) {
+		console.log(lowerCasedCharacters);
+		usersChoices.concat(lowerCasedCharacters);
+	}
+
+	if (params.upperChar === true) {
+		usersChoices.concat(upperCasedCharacters);
+	}
+
+	if (params.specialChar === true) {
+		usersChoices.concat(specialCharacters);
+	}
+
+	if (params.number === true) {
+		usersChoices.concat(numericCharacters);
+	}
+
+	for (let i = 0; i < params.length; i++) {
+		password.push(randomizer(usersChoices));
+	}
+
+	console.log({ password, usersChoices });
+
+	return password.join('');
 }
 
 // Write password to the #password input (provided)
