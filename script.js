@@ -123,19 +123,19 @@ function generatePassword() {
 
 	if (params.lowerChar === true) {
 		console.log(lowerCasedCharacters);
-		usersChoices.concat(lowerCasedCharacters);
+		usersChoices.push(...lowerCasedCharacters);
 	}
 
 	if (params.upperChar === true) {
-		usersChoices.concat(upperCasedCharacters);
+		usersChoices.push(...upperCasedCharacters);
 	}
 
 	if (params.specialChar === true) {
-		usersChoices.concat(specialCharacters);
+		usersChoices.push(...specialCharacters);
 	}
 
 	if (params.number === true) {
-		usersChoices.concat(numericCharacters);
+		usersChoices.push(...numericCharacters);
 	}
 
 	for (let i = 0; i < params.length; i++) {
