@@ -12,4 +12,4 @@ View my project as it is deployed via GitHub: https://vmichalecki.github.io/pass
 
 Clone my repo: https://github.com/vmichalecki/password-generator/
 
-![password generator screenshot](./assets/images/password-generator-screenshot)
+![password generator screenshot](./assets/images/password-generator-screenshot.png)
