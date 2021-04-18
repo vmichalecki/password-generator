@@ -1,4 +1,4 @@
-// global variables
+// Global variables
 let generateBtn = document.querySelector('#generate');
 const specialCharacters = [
 	'@',
@@ -83,10 +83,9 @@ const upperCasedCharacters = [
 	'Z',
 ];
 
-// this function prompts the user to make a choice with popup windows and then evaluates the user's choices in a string for the length and booleans for the rest of the parameters
+// This function prompts the user to make selections with window alerts and then evaluates the user's choices in a string for the length and booleans for the rest of the parameters
 function passwordParams() {
 	// Variables to store password parameters
-
 	let passwordLength = parseInt(window.prompt('How many characters? Choose from between 8 and 128 characters.'));
 	if (passwordLength < 8) {
 		alert('No, you must choose between 8 and 128 characters.');
@@ -117,13 +116,13 @@ function passwordParams() {
 	return pwParams;
 }
 
-// this function chooses ONE random character from each array
+// This function chooses one random character from each array
 function randomizer(array) {
 	const index = Math.floor(Math.random() * array.length);
 	const indexEl = array[index];
 	return indexEl;
 }
-
+// This function generates a password based on the user's choices
 function generatePassword() {
 	const params = passwordParams();
 	console.log(params);
@@ -147,21 +146,20 @@ function generatePassword() {
 		usersChoices.push(...numericCharacters);
 	}
 
+	// This function chooses random characters based on the user's desired password length
 	for (let i = 0; i < params.length; i++) {
 		password.push(randomizer(usersChoices));
 	}
-
 	console.log({ password, usersChoices });
-
 	return password.join('');
 }
 
-// Write password to the #password input (provided)
+// Writes password to the #password input
 function writePassword() {
 	const password = generatePassword();
 	const passwordText = document.querySelector('#password');
 	passwordText.value = password;
 }
 
-// Add event listener to generate button (provided)
+// Event listener for click to initiate prompts
 generateBtn.addEventListener('click', writePassword);
