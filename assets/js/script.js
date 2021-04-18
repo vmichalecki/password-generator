@@ -87,13 +87,13 @@ const upperCasedCharacters = [
 function passwordParams() {
 	// Variables to store password parameters
 
-	let passwordLength = parseInt(window.prompt('How many characters? (Enter 8-128)'));
+	let passwordLength = parseInt(window.prompt('How many characters? Choose from between 8 and 128 characters.'));
 	if (passwordLength < 8) {
-		alert('you must choose between 8-128');
+		alert('No, you must choose between 8 and 128 characters.');
 		return;
 	}
 	if (passwordLength > 128) {
-		alert('you must choose between 8-128');
+		alert('No, you must choose between 8 and 128 characters.');
 		return;
 	}
 	const lowerCase = window.confirm('Include lowercase characters?');
