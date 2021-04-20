@@ -129,6 +129,7 @@ function generatePassword() {
 	let password = [];
 	let usersChoices = [];
 
+	// the spread synta(...) separates an array into different arguments
 	if (params.lowerChar === true) {
 		console.log(lowerCasedCharacters);
 		usersChoices.push(...lowerCasedCharacters);
